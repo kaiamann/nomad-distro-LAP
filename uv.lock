@@ -3326,6 +3326,35 @@ version = "0.1.1"
 source = { git = "https://github.com/FAIRmat-NFDI/nomad-aitoolkit.git?rev=b203f8eb28dc4b6771a39d5c5b7ad3d9d8583ac8#b203f8eb28dc4b6771a39d5c5b7ad3d9d8583ac8" }
 
 [[package]]
+name = "nomad-camels-plugin"
+version = "0.1.9"
+source = { git = "https://github.com/FAIRmat-NFDI/nomad-camels-plugin.git?rev=v0.1.9#f4d83f584e859c1abaff445bd61cd7128db48287" }
+dependencies = [
+    { name = "nomad-camels-toolbox", extra = ["plotly"] },
+    { name = "nomad-lab", extra = ["infrastructure"] },
+    { name = "python-magic-bin", marker = "sys_platform == 'win32'" },
+]
+
+[[package]]
+name = "nomad-camels-toolbox"
+version = "0.4.2"
+source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }
+dependencies = [
+    { name = "h5py" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/7b/bb/27e65d8bd38914c0ef05279a61d34caef3dad4355cafea0e152dcb09cf09/nomad_camels_toolbox-0.4.2.tar.gz", hash = "sha256:44d1023a95be249e4f4affb3e9951104024366fc8f11bc3f0308d34bf90e3ca7", size = 36273, upload-time = "2025-11-25T13:04:18.749Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/75/6e/96c14dcf5ad7430252f736b39a02b4f01200e3fa6c7e44153b49386ec990/nomad_camels_toolbox-0.4.2-py3-none-any.whl", hash = "sha256:467346f0bdae153e1813c46a34c4290d513aea4059909c202c0af9981b1eb67c", size = 39450, upload-time = "2025-11-25T13:04:17.893Z" },
+]
+
+[package.optional-dependencies]
+plotly = [
+    { name = "lmfit" },
+    { name = "pandas" },
+    { name = "plotly" },
+]
+
+[[package]]
 name = "nomad-distribution"
 source = { editable = "." }
 dependencies = [
@@ -3343,6 +3372,8 @@ jupyter = [
 plugins = [
     { name = "eelsdbconverter" },
     { name = "nomad-aitoolkit" },
+    { name = "nomad-camels-plugin" },
+    { name = "nomad-lap-schema" },
     { name = "nomad-normalizer-plugin-bandstructure" },
     { name = "nomad-normalizer-plugin-dos" },
     { name = "nomad-normalizer-plugin-simulation-workflow" },
@@ -3375,8 +3406,10 @@ requires-dist = [
     { name = "eelsdbconverter", marker = "extra == 'plugins'", git = "https://github.com/nomad-coe/nomad-parser-eelsdb.git?rev=entry-point" },
     { name = "jupyter-events", marker = "extra == 'jupyter'" },
     { name = "nomad-aitoolkit", marker = "extra == 'plugins'", git = "https://github.com/FAIRmat-NFDI/nomad-aitoolkit.git?rev=b203f8eb28dc4b6771a39d5c5b7ad3d9d8583ac8" },
+    { name = "nomad-camels-plugin", marker = "extra == 'plugins'", git = "https://github.com/FAIRmat-NFDI/nomad-camels-plugin.git?rev=v0.1.9" },
     { name = "nomad-lab", extras = ["dev", "infrastructure"], marker = "extra == 'dev'", specifier = ">=1.3.4" },
     { name = "nomad-lab", extras = ["infrastructure"], specifier = ">=1.4.0" },
+    { name = "nomad-lap-schema", marker = "extra == 'plugins'", git = "https://github.com/FAU-LAP/nomad-lap-schema?rev=61322e9f3bf6a68ce194125cd976f84ad96a489b" },
     { name = "nomad-normalizer-plugin-bandstructure", marker = "extra == 'plugins'", specifier = ">=1.0" },
     { name = "nomad-normalizer-plugin-dos", marker = "extra == 'plugins'", specifier = ">=1.0" },
     { name = "nomad-normalizer-plugin-simulation-workflow", marker = "extra == 'plugins'", specifier = ">=1.0" },
@@ -3506,6 +3539,15 @@ infrastructure = [
     { name = "uvicorn", extra = ["standard"] },
     { name = "validators" },
     { name = "zipstream-ng" },
+]
+
+[[package]]
+name = "nomad-lap-schema"
+version = "0.1.0"
+source = { git = "https://github.com/FAU-LAP/nomad-lap-schema?rev=61322e9f3bf6a68ce194125cd976f84ad96a489b#61322e9f3bf6a68ce194125cd976f84ad96a489b" }
+dependencies = [
+    { name = "nomad-lab" },
+    { name = "python-magic-bin", marker = "sys_platform == 'win32'" },
 ]
 
 [[package]]
