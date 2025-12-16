@@ -23,6 +23,9 @@ meta:
 logstash:
   enabled: false
 
+temporal:
+  enabled: true
+
 mongo:
   db_name: nomad_oasis_v1
 
