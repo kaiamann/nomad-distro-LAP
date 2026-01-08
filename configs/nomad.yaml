@@ -2,7 +2,7 @@ services:
   api_host: "localhost"
   api_base_path: "/nomad-oasis"
   upload_limit: 1000
-  
+
 
 oasis:
   is_oasis: true
@@ -13,7 +13,7 @@ north:
   tools:
     options:
       jupyter:
-        image: ghcr.io/fau-lap/nomad-distro-lap/jupyter:main
+        image: ghcr.io/kaiamann/nomad-distro-lap/jupyter:main
 
 meta:
   deployment: "oasis"
